@@ -6,34 +6,90 @@ jobs:
     defaults:
       run:
         working-directory: ./nextjs-project
-    name: Publish to Cloudflare using wrangler action
+    name: Publish nextjs-project to Cloudflare using wrangler action
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       # Run a build step here if your project requires
       - name: Build command
         run: npx @cloudflare/next-on-pages@1
-        
+
       - name: Deploy
-        uses: Maximo-Guk/wrangler-action@maximo/fixup-235
+        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: "./nextjs-project"
+          workingDirectory: './nextjs-project'
           command: pages deploy .vercel/output/static --project-name=demo-actions
-  publish-hello-world-workers-project-using-wrangler-action:
+  publish-hello-world-workers-project-npm-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hello-world-workers-project
-    name: Publish to Cloudflare using wrangler action
+        working-directory: ./hello-world-workers-project-npm
+    name: Publish hello-world-workers-project-npm to Cloudflare using wrangler action
     steps:
       - name: Checkout
-        uses: actions/checkout@v4        
+        uses: actions/checkout@v4
       - name: Deploy
-        uses: Maximo-Guk/wrangler-action@maximo/fixup-235
+        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: "./hello-world-workers-project"
+          workingDirectory: './hello-world-workers-project-npm'
+          command: deploy src/index.ts
+  publish-hello-world-workers-project-pnpm-using-wrangler-action:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hello-world-workers-project-pnpm
+    name: Publish hello-world-workers-project-pnpm to Cloudflare using wrangler action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - name: Deploy
+        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: './hello-world-workers-project-pnpm'
+          command: deploy src/index.ts
+  publish-hello-world-workers-project-yarn-using-wrangler-action:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hello-world-workers-project-pnpm
+    name: Publish hello-world-workers-project-yarn to Cloudflare using wrangler action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy
+        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: './hello-world-workers-project-yarn'
+          command: deploy src/index.ts
+  publish-hello-world-workers-project-bun-using-wrangler-action:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hello-world-workers-project-bun
+    name: Publish hello-world-workers-project-bun to Cloudflare using wrangler action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Deploy
+        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: './hello-world-workers-project-bun'
           command: deploy src/index.ts

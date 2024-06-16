@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "hello-world-workers-project"
+name = "hello-world-workers-project-npm"
 main = "src/index.ts"
 compatibility_date = "2024-06-10"
 compatibility_flags = ["nodejs_compat"]
