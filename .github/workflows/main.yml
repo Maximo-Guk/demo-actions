@@ -94,9 +94,14 @@ jobs:
         with:
           bun-version: latest
       - name: Deploy
+        id: deploy
         uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-bun'
           command: deploy src/index.ts
+      - name: Outputs
+        run: |
+          echo "URL: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Alias: ${{ steps.deploy.outputs.deployment-alias-url }}"
