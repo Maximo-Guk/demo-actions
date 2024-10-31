@@ -27,7 +27,7 @@ jobs:
           echo "ID: ${{ steps.deploy.outputs.id }}"
           echo "URL: ${{ steps.deploy.outputs.deployment-url }}"
           echo "Environment: ${{ steps.deploy.outputs.environment }}"
-          echo "Alias: ${{ steps.deploy.outputs.deployment-alias }}"
+          echo "Alias: ${{ steps.deploy.outputs.deployment-alias-url }}"
   publish-hello-world-workers-project-npm-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
