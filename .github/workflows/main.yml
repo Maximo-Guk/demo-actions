@@ -21,6 +21,10 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './nextjs-project'
           command: pages deploy .vercel/output/static --project-name=demo-actions
+      - name: print deployment-url
+        env:
+          DEPLOYMENT_URL: ${{ steps.publish-nextjs-project-using-wrangler-action.outputs.deployment-url }}
+        run: echo $DEPLOYMENT_URL
   publish-hello-world-workers-project-npm-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
@@ -93,7 +97,3 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-bun'
           command: deploy src/index.ts
-      - name: print deployment-url
-        env:
-          DEPLOYMENT_URL: ${{ steps.Deploy.outputs.deployment-url }}
-        run: echo $DEPLOYMENT_URL
