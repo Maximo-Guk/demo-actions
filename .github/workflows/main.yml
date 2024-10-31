@@ -95,5 +95,5 @@ jobs:
           command: deploy src/index.ts
       - name: print deployment-url
         env:
-          DEPLOYMENT_URL: ${{ steps.publish-hello-world-workers-project-bun-using-wrangler-action.outputs.deployment-url }}
+          DEPLOYMENT_URL: ${{ steps.Deploy.outputs.deployment-url }}
         run: echo $DEPLOYMENT_URL
