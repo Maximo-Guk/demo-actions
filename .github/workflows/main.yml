@@ -16,7 +16,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: Maximo-Guk/wrangler-action@maximo/test-fixup-235
+        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
