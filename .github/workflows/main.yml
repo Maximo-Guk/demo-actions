@@ -16,7 +16,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
+        uses: cloudflare/wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -39,7 +39,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
+        uses: cloudflare/wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -59,7 +59,7 @@ jobs:
         with:
           version: 8
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
+        uses: cloudflare/wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -75,7 +75,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
+        uses: cloudflare/wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -96,7 +96,7 @@ jobs:
           bun-version: latest
       - name: Deploy
         id: deploy
-        uses: cloudflare/wrangler-action@maximo/test-add-parity-with-wrangler-action
+        uses: cloudflare/wrangler-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
