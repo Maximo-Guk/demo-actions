@@ -61,6 +61,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-npm'
           command: deploy src/index.ts
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
   publish-hello-world-workers-project-pnpm-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
@@ -81,6 +82,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-pnpm'
           command: deploy src/index.ts
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
   publish-hello-world-workers-project-yarn-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
@@ -97,6 +99,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-yarn'
           command: deploy src/index.ts
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
   publish-hello-world-workers-project-bun-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
@@ -118,6 +121,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './hello-world-workers-project-bun'
           command: deploy src/index.ts
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Outputs
         run: |
           echo "URL: ${{ steps.deploy.outputs.deployment-url }}"
