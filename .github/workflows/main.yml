@@ -22,6 +22,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './nextjs-project'
           command: pages deploy .vercel/output/static --project-name=demo-actions
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Outputs
         run: |
           echo "ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
@@ -38,6 +39,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './nextjs-project'
           command: pages deploy .vercel/output/static --project-name=demo-actions
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Outputs
         run: |
           echo "ID: ${{ steps.deploy2.outputs.pages-deployment-id }}"
@@ -63,6 +65,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './simple-html'
           command: pages deploy site --project-name=demo-actions
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Outputs
         run: |
           echo "ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
