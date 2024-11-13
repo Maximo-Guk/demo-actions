@@ -1,50 +1,50 @@
 on: [push, workflow_dispatch]
 
 jobs:
-  publish-nextjs-project-using-wrangler-action:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./nextjs-project
-    name: Publish nextjs-project to Cloudflare using wrangler action
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Run a build step here if your project requires
-      - name: Build command
-        run: npx @cloudflare/next-on-pages@1
+  # publish-nextjs-project-using-wrangler-action:
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: ./nextjs-project
+  #   name: Publish nextjs-project to Cloudflare using wrangler action
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     # Run a build step here if your project requires
+  #     - name: Build command
+  #       run: npx @cloudflare/next-on-pages@1
 
-      - name: Deploy
-        id: deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: './nextjs-project'
-          command: pages deploy .vercel/output/static --project-name=demo-actions
-      - name: Outputs
-        run: |
-          echo "ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
-          echo "URL: ${{ steps.deploy.outputs.deployment-url }}"
-          echo "Environment: ${{ steps.deploy.outputs.pages-environment }}"
-          echo "Deprecated Alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
-          echo "Alias: ${{ steps.deploy.outputs.deployment-alias-url }}"
+  #     - name: Deploy
+  #       id: deploy
+  #       uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+  #       with:
+  #         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  #         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  #         workingDirectory: './nextjs-project'
+  #         command: pages deploy .vercel/output/static --project-name=demo-actions
+  #     - name: Outputs
+  #       run: |
+  #         echo "ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
+  #         echo "URL: ${{ steps.deploy.outputs.deployment-url }}"
+  #         echo "Environment: ${{ steps.deploy.outputs.pages-environment }}"
+  #         echo "Deprecated Alias: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
+  #         echo "Alias: ${{ steps.deploy.outputs.deployment-alias-url }}"
 
-      - name: Deploy 2
-        id: deploy2
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: './nextjs-project'
-          command: pages deploy .vercel/output/static --project-name=demo-actions
-      - name: Outputs
-        run: |
-          echo "ID: ${{ steps.deploy2.outputs.pages-deployment-id }}"
-          echo "URL: ${{ steps.deploy2.outputs.deployment-url }}"
-          echo "Environment: ${{ steps.deploy2.outputs.pages-environment }}"
-          echo "Deprecated Alias: ${{ steps.deploy2.outputs.pages-deployment-alias-url }}"
-          echo "Alias: ${{ steps.deploy2.outputs.deployment-alias-url }}"
+  #     - name: Deploy 2
+  #       id: deploy2
+  #       uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+  #       with:
+  #         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  #         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  #         workingDirectory: './nextjs-project'
+  #         command: pages deploy .vercel/output/static --project-name=demo-actions
+  #     - name: Outputs
+  #       run: |
+  #         echo "ID: ${{ steps.deploy2.outputs.pages-deployment-id }}"
+  #         echo "URL: ${{ steps.deploy2.outputs.deployment-url }}"
+  #         echo "Environment: ${{ steps.deploy2.outputs.pages-environment }}"
+  #         echo "Deprecated Alias: ${{ steps.deploy2.outputs.pages-deployment-alias-url }}"
+  #         echo "Alias: ${{ steps.deploy2.outputs.deployment-alias-url }}"
   publish-hello-world-workers-project-npm-using-wrangler-action:
     runs-on: ubuntu-latest
     defaults:
