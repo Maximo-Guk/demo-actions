@@ -62,7 +62,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: './simple-html'
-          command: pages deploy index.html --project-name=demo-actions
+          command: pages deploy site --project-name=demo-actions
       - name: Outputs
         run: |
           echo "ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
