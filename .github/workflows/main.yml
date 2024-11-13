@@ -49,6 +49,9 @@ jobs:
           echo "Alias: ${{ steps.deploy2.outputs.deployment-alias-url }}"
   publish-simple-html-using-wrangler-action:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     defaults:
       run:
         working-directory: ./simple-html
