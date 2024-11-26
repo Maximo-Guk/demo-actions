@@ -16,7 +16,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy 2
         id: deploy2
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -62,7 +62,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -86,7 +86,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -107,7 +107,7 @@ jobs:
         with:
           version: 8
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -124,7 +124,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -146,7 +146,7 @@ jobs:
           bun-version: latest
       - name: Deploy
         id: deploy
-        uses: cloudflare/wrangler-action@maximo/add-github-deployments-parity-for-pages-deployments-in-wrangler-action
+        uses: cloudflare/wrangler-action@main
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
